@@ -1,0 +1,55 @@
+head
+    block head
+
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    title= pageSettings.title
+    meta(content="", name="description")
+    meta(content="", name="keywords")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(content="telephone=no", name="format-detection")
+    //- This make sence for mobile browsers. It means, that content has been optimized for mobile browsers
+    meta(name="HandheldFriendly", content="true")
+
+    |<!--[if IE 8 ]><link href="%=static=%css/main_ie8%=hash=%%=min=%.css" rel="stylesheet" type="text/css"><![endif]-->
+    |<!--[if IE 9 ]><link href="%=static=%css/main_ie9%=hash=%%=min=%.css" rel="stylesheet" type="text/css"><![endif]-->
+    |<!--[if (gt IE 9)|!(IE)]><!--><link href="%=static=%css/main%=hash=%%=min=%.css" rel="stylesheet" type="text/css"><!--<![endif]-->
+
+    if pageSettings.useSocialMetaTags
+        meta(property="og:title", content="#{data.title}")
+        meta(property="og:title", content="")
+        meta(property="og:url", content="")
+        meta(property="og:description", content="")
+        meta(property="og:image", content="")
+        meta(property="og:image:type", content="image/jpeg")
+        meta(property="og:image:width", content="500")
+        meta(property="og:image:height", content="300")
+        meta(property="twitter:description", content="")
+        link(rel="image_src", href="")
+
+    link(rel="icon" type="image/x-icon" href="favicon.ico")
+
+    script(
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"
+    )
+    
+    script(
+        src="https://code.jquery.com/jquery-3.1.1.js" 
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous"
+    )
+    
+    //////TABS///////
+    script.
+        (function(a,w,g,n){if(!a.ionTabs){var h={},q={},k={},b,d,r,v=a(g),t=function(){try{if(g.localStorage&&null!==g.localStorage)return{save:function(b,a){"object"===typeof a&&(a=JSON.stringify(a));try{localStorage.setItem(b,a)}catch(c){"QUOTA_EXCEEDED_ERR"===c&&(localStorage.clear(),localStorage.setItem(b,a))}},load:function(a){try{return JSON.parse(localStorage.getItem(a))}catch(b){return localStorage.getItem(a)}},del:function(a){localStorage.removeItem(a)}}}catch(b){return{save:function(){return null},load:function(){return null},del:function(){return null}}}return null}(),u=function(a){this.container=a};u.prototype={init:function(){var c=this.container,m=c.find(".ionTabs__tab"),d=c.find(".ionTabs__item"),s=c.find(".ionTabs__preloader"),l,f=c.data("name"),e;m.each(function(){l=a(this);e="Button__"+f+"__"+l.data("target");l.prop("id",e)});d.each(function(){l=a(this);e="Tab__"+f+"__"+l.data("name");l.prop("id",e)});m.on("click.ionTabs",function(b){b.preventDefault();s[0].style.display="block";p(a(this).data("target"))});var p=function(c){c=decodeURIComponent(c);e="#Button__"+f+"__"+c;a(e).addClass("ionTabs__tab_state_active").siblings().removeClass("ionTabs__tab_state_active");e="#Tab__"+f+"__"+c;a(e).addClass("ionTabs__item_state_active").siblings().removeClass("ionTabs__item_state_active");s[0].style.display="none";var d;k[f]=c;b="tabs";for(d in k)k.hasOwnProperty(d)&&(b+="|"+encodeURIComponent(d)+":"+encodeURIComponent(k[d]));"hash"===h.type&&(n.hash=b);"storage"===h.type&&t.save(n.hostname+"__ionTabsPosition",b);v.trigger("ionTabsChange",{group:f,tab:c,tabId:e});if("function"===typeof h.onChange)h.onChange({group:f,tab:c,tabId:e})};k[f]?p(k[f]):p(m.eq(0).data("target"));this.setTab=function(a){p(a)}}};a.ionTabs=function(c,m){if(c){var g;h=a.extend({type:"hash",onChange:null},m);"hash"===h.type&&(b=n.hash);"storage"===h.type&&(b=t.load(n.hostname+"__ionTabsPosition"));if(b){b=b.split("|");if(1<b.length)for(d=1;d<b.length;d+=1)r=b[d].split(":"),k[decodeURIComponent(r[0])]=decodeURIComponent(r[1]);b=""}a(c).each(function(){g=a(this);var b=encodeURIComponent(g.data("name"));q[b]=new u(g);q[b].init()})}};a.ionTabs.setTab=function(a,b){q[a].setTab(b)}}})(jQuery,document,window,location);
+    
+    //////////POP-UP///////
+    script.
+        (function($){$.fn.extend({leanModal:function(options){var defaults={top:100,overlay:0.5,closeButton:null};var overlay=$("<div id='lean_overlay'></div>");$("body").append(overlay);options=$.extend(defaults,options);return this.each(function(){var o=options;$(this).click(function(e){var modal_id=$(this).attr("href");$("#lean_overlay").click(function(){close_modal(modal_id)});$(o.closeButton).click(function(){close_modal(modal_id)});var modal_height=$(modal_id).outerHeight();var modal_width=$(modal_id).outerWidth();$("#lean_overlay").css({"display":"block",opacity:0});$("#lean_overlay").fadeTo(200,o.overlay);$(modal_id).css({"display":"block","position":"fixed","opacity":0,"z-index":11000,"left":50+"%","margin-left":-(modal_width/2)+"px","top":o.top+"px"});$(modal_id).fadeTo(200,1);e.preventDefault()})});function close_modal(modal_id){$("#lean_overlay").fadeOut(200);$(modal_id).css({"display":"none"})}}})})(jQuery);
+    
+
+    script.
+        (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
+    |<!--[if lt IE 9 ]><script src="%=static=%js/separate-js/html5shiv-3.7.2.min.js" type="text/javascript"></script><meta content="no" http-equiv="imagetoolbar"><![endif]-->

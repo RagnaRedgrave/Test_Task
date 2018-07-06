@@ -1,0 +1,25 @@
+mixin header(data)
+    +b.HEADER.header()&attributes(attributes)
+        block header
+            div(class="links")
+                p(class="links__usa") Usa site
+                p(class="links__deu") Deutshe site
+                p(class="links__rus") 
+                    a Россия: 
+                    |Switch to English
+                //svg(src="../../static/img/svg/1.svg", class="links__clock")
+                //svg(class="links__clock")
+                    use(xlink:href="../../static/img/svg/1.svg#links__clock")
+                //!= pugHelpers.Icon.call(locals, {iconName: '1', className: 'svg-icon'})
+                p(class="links__online") Онлайн-табло
+                div(id="basic-modal" class="modal")
+                    h3 Введите данные
+                    ol
+                        li(class="input-window")
+                            label(for="email") E-mail
+                            input(id="email" name="email" placeholder="example@domain.com" required="" type="email")
+                        li(class="input-window")
+                            label(for="password") Пароль
+                            input(id="password" name="password" placeholder="password" required="" type="password")
+                    input(type="button" class="input-button" required="" value="Войти")
+                a(rel="leanModal" href="#basic-modal" class="links__enter") Вход и регистрация

@@ -1,0 +1,64 @@
+extends ../layouts/default
+
+block vars
+    -pageSettings.title = 'Главная';
+
+block content
+    // Контент здесь
+    div(class="slider")
+        div(class="ionTabs" id="tabs_1" data-name="Tabs_Group_name")
+            img(src="../static/img/content/logo.png", class="slider__logo")
+            div(class="search")
+                input(type="text" name="text" required="" placeholder="  поиск по сайту")
+                input(type="submit" name="submit" required="" value="")
+            ul(class="ionTabs__head")
+                li(class="ionTabs__tab", data-target="Tab_1_name") Возможности
+                li(class="ionTabs__tab", data-target="Tab_2_name") Информация
+                li(class="ionTabs__tab", data-target="Tab_3_name") Привилегии
+            div(class="ionTabs__body")
+                div(class="ionTabs__item" data-name="Tab_1_name")
+                    div(class="slider__main")
+                    div(class="container")
+                        div(class="slider-outer")
+                            img(src="../static/img/content/arrow_left.png", class="prev", alt="Prev")
+                            div(class="slider-inner")
+                                img(src="../static/img/content/plane.png", class="active")
+                                p(class="slider__name-top active") Открывай мир <br/> 
+                                p(class="slider__name-middle active") вместе с Трансаэро <br/>
+                                p(class="slider__name-bottom active") Почувствуй комфорт современного Boeing 747-300
+                                img(src="../static/img/content/plane2.png")
+                                p(class="slider__name-top") Открывай мир <br/> 
+                                p(class="slider__name-middle") вместе с Трансаэро <br/>
+                                p(class="slider__name-bottom") Почувствуй комфорт современного Boeing 747-300
+                            img(src="../static/img/content/arrow_right.png", class="next", alt="Next")
+                div(class="ionTabs__item" data-name="Tab_2_name")
+                    div(class="slider__main")
+                    div(class="container")
+                        div(class="slider-outer")
+                            img(src="../static/img/content/arrow_left.png", class="prev", alt="Prev")
+                            div(class="slider-inner")
+                                img(src="../static/img/content/plane.png", class="active")
+                                p(class="slider__name-top active") Открывай мир <br/> 
+                                p(class="slider__name-middle active") вместе с Трансаэро <br/>
+                                p(class="slider__name-bottom active") Почувствуй комфорт современного Boeing 747-300
+                                img(src="../static/img/content/plane2.png")
+                                p(class="slider__name-top") Открывай мир <br/> 
+                                p(class="slider__name-middle") вместе с Трансаэро <br/>
+                                p(class="slider__name-bottom") Почувствуй комфорт современного Boeing 747-300
+                            img(src="../static/img/content/arrow_right.png", class="next", alt="Next")
+                div(class="ionTabs__item" data-name="Tab_3_name")
+                    div(class="slider__main")
+                    div(class="container")
+                        div(class="slider-outer")
+                            img(src="../static/img/content/arrow_left.png", class="prev", alt="Prev")
+                            div(class="slider-inner")
+                                img(src="../static/img/content/plane.png", class="active")
+                                p(class="slider__name-top active") Открывай мир <br/> 
+                                p(class="slider__name-middle active") вместе с Трансаэро <br/>
+                                p(class="slider__name-bottom active") Почувствуй комфорт современного Boeing 747-300
+                                img(src="../static/img/content/plane2.png")
+                                p(class="slider__name-top") Открывай мир <br/> 
+                                p(class="slider__name-middle") вместе с Трансаэро <br/>
+                                p(class="slider__name-bottom") Почувствуй комфорт современного Boeing 747-300
+                            img(src="../static/img/content/arrow_right.png", class="next", alt="Next")
+                div(class="ionTabs__preloader")  
